@@ -1,0 +1,2 @@
+DROP FUNCTION set_value(TEXT, TEXT);
+DROP FUNCTION get_value(TEXT);

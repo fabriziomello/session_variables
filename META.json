@@ -1,0 +1,25 @@
+{
+   "name": "session_variables",
+   "abstract": "Functions to manipulate (get/set) session variables",
+   "description": "Functions to manipulate (get/set) session variables during a PostgreSQL User Session.",
+   "version": "0.0.1",
+   "maintainer": "Fabrízio de Royes Mello",
+   "license": "postgresql",
+   "provides": {
+      "session_variables": {
+         "abstract": "Functions to manipulate (get/set) session variables",
+         "file": "sql/session_variables.sql",
+         "docfile": "doc/session_variables.md",
+         "version": "0.0.1"
+      }
+   },
+   "release_status": "unstable",
+
+   "generated_by": "Fabrízio de Royes Mello",
+
+
+   "meta-spec": {
+      "version": "1.0.0",
+      "url": "http://pgxn.org/meta/spec.txt"
+   }
+}
