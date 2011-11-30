@@ -5,7 +5,9 @@
  */ 
 
 CREATE FUNCTION get_value(TEXT) RETURNS TEXT AS $$
-  SELECT key FROM session_variables WHERE key = $1;
+  SELECT key 
+    FROM session_variables 
+   WHERE key = $1;
 $$ LANGUAGE sql;
 COMMENT ON FUNCTION get_value(TEXT) IS
 'Returns the value of session variable passed by parameter';

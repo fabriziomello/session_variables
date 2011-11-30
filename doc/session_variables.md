@@ -9,7 +9,8 @@ Synopsis
 Description
 -----------
 
-A long description
+  Functions to manipulate (get/set) session variables.
+
 
 Usage
 -----
