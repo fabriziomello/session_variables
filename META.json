@@ -2,7 +2,7 @@
    "name": "session_variables",
    "abstract": "Functions to manipulate (get/set) session variables",
    "description": "Functions to manipulate (get/set) session variables during a PostgreSQL User Session.",
-   "version": "0.0.2",
+   "version": "0.0.3",
    "maintainer": "Fabrízio de Royes Mello",
    "license": "postgresql",
    "provides": {
@@ -10,7 +10,7 @@
          "abstract": "Functions to manipulate (get/set) session variables",
          "file": "sql/session_variables.sql",
          "docfile": "doc/session_variables.md",
-         "version": "0.0.1"
+         "version": "0.0.3"
       }
    },
    "release_status": "stable",

@@ -4,15 +4,6 @@
  *
  */ 
 
-CREATE FUNCTION get_value(TEXT) RETURNS TEXT AS $$
-  SELECT key 
-    FROM session_variables 
-   WHERE key = $1;
-$$ LANGUAGE sql;
-COMMENT ON FUNCTION get_value(TEXT) IS
-'Returns the value of session variable passed by parameter';
-
-
 CREATE FUNCTION set_value(TEXT, TEXT) RETURNS void AS $$
 BEGIN
   IF NOT EXISTS (
@@ -23,9 +14,8 @@ BEGIN
        AND relkind = 'r'
        AND nspname ~ '^pg_temp') THEN
     
-    /* Just with 9.1+ version */
-    CREATE TEMP UNLOGGED TABLE session_variables (
-      key   TEXT,
+    CREATE TEMP TABLE session_variables (
+      key   TEXT NOT NULL PRIMARY KEY,
       value TEXT
     );
   END IF;
@@ -39,8 +29,15 @@ BEGIN
   RETURN;
 END;
 $$ LANGUAGE plpgsql;
+COMMENT ON FUNCTION set_value(TEXT, TEXT) IS
+'Create/Assign value to a new/existing session variable';
+
+SET check_function_bodies TO OFF;
+CREATE FUNCTION get_value(TEXT) RETURNS TEXT AS $$
+  SELECT value 
+    FROM session_variables 
+   WHERE key = $1;
+$$ LANGUAGE sql;
 COMMENT ON FUNCTION get_value(TEXT) IS
-'Create/Set session variable with new value';
-
-
+'Returns the value of session variable passed as a parameter';
 
