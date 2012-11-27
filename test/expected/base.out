@@ -1,2 +1,32 @@
 \set ECHO 0
+SELECT set_value('key', 'value');
+ set_value 
+ -----------
+  
+  (1 row)
+SELECT set_value('Key', 'Value');
+ set_value 
+ -----------
+  
+  (1 row)
+SELECT set_value('KEY', 'VALUE');
+ set_value 
+ -----------
+  
+  (1 row)
+SELECT get_value('key');
+ get_value 
+ -----------
+  value
+  (1 row)
+SELECT get_value('Key');
+ get_value 
+ -----------
+  Value
+  (1 row)
+SELECT get_value('KEY');
+ get_value 
+ -----------
+  VALUE
+  (1 row)
 ROLLBACK;
